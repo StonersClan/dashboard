@@ -1,3 +1,23 @@
 .list-group-item {
-    margin-bottom: 2px;
+    background-color: rgb(36, 77, 199);
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.list-group-item .status {
+    border: 2px solid black;
+    width: 50px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border-radius: 10px;
+    width: 30%;
+}
+
+.list-group-item .service_provider_name {
+    width: 70%;
 }

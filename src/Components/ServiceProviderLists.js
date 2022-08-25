@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import {Container, Navbar} from 'react-bootstrap'
-import axios from 'axios';
-import Posts from './Posts';
-import Pagenation from './Pagenation';
+import React, { useState, useEffect } from "react";
+import { Container, Navbar } from "react-bootstrap";
+import axios from "axios";
+import Posts from "./Posts";
+import Pagenation from "./Pagenation";
 
-function ServiceProviderLists() {
+function ServiceProviderLists(props) {
+  console.log(props.adhaar);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -13,26 +14,26 @@ function ServiceProviderLists() {
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
       setPosts(res.data);
-      setLoading(false);    
-    }
+      setLoading(false);
+    };
 
     fetchPosts();
   }, []);
 
   const pagenate = (number) => {
     //state variable update would re-render the component
-    setCurrentPage(number); 
-  }
+    setCurrentPage(number);
+  };
 
   console.log(posts);
-  
+
   var indexLast = currentPage * postsPerPage;
   var indexFirst = indexLast - postsPerPage;
   const currentPosts = posts.slice(indexFirst, indexLast);
-  
-  if(indexLast >= posts.length) {
+
+  if (indexLast >= posts.length) {
     indexLast = posts.length;
   }
 
@@ -40,7 +41,9 @@ function ServiceProviderLists() {
     <>
       <Navbar>
         <Container>
-          <Navbar.Brand href="#home">LogOut</Navbar.Brand>
+          <button type="button" className="btn btn-secondary btn-lg">
+            Log Out
+          </button>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
@@ -51,11 +54,11 @@ function ServiceProviderLists() {
       </Navbar>
       <Container>
         <h1 className="text-primary mb">My Blog</h1>
-        <Posts posts={currentPosts}  loading={loading}></Posts>
-        <Pagenation 
-          postsPerPage={postsPerPage} 
-          totalPosts={posts.length} 
-          pagenate={pagenate} 
+        <Posts className="posts" posts={currentPosts} loading={loading}></Posts>
+        <Pagenation
+          postsPerPage={postsPerPage}
+          totalPosts={posts.length}
+          pagenate={pagenate}
         />
       </Container>
     </>

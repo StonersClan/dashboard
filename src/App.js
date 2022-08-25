@@ -1,24 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import {Container, Button} from 'react-bootstrap'
+import axios from 'axios';
+import ServiceProviderLists from './Components/ServiceProviderLists';
 
 function App() {
+  const [verify, setVerify] = useState(false);
+  const [adhaarNum, setAdhaarNum] = useState('');
+  const [OTP, setOTP] = useState('');
+
+  function verifyOTP() {
+    setVerify(true);
+  }
+  function sendOTP(e) {
+    console.log(adhaarNum);
+  }
+  function handleSetAdhaar(e) {
+    setAdhaarNum(e.target.value);
+  }
+  function handleSetOTP(e) {
+    setOTP(e.target.value);
+  }
+
+  if(verify) {
+    return <ServiceProviderLists/>
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {verify ? <ServiceProviderLists/> : 
+      <div>
+      <div>
+        <label>
+          Enter your Adhaar Number:
+          <input type="text" value={adhaarNum} onChange={handleSetAdhaar} />
+        </label>
+        <Button
+          variant="primary"
+          onClick={sendOTP}
+        >Get OTP</Button>
+      </div>
+
+      <div>
+        <label>
+          Enter the OTP sent to registered mobile number:
+          <input type="text" value={OTP} onChange={handleSetOTP} />
+        </label>
+        <Button
+          variant="primary"
+          onClick={verifyOTP}
+        >VERIFY</Button>
+      </div>
+      </div>
+      }
+    </>
   );
 }
 

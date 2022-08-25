@@ -1,23 +1,66 @@
 .list-group-item {
-    background-color: rgb(36, 77, 199);
+    background-color: #d9d9eb;
     margin-bottom: 1rem;
-    border-radius: 5px;
+    border-radius: 20px;
     display: flex;
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
-.list-group-item .status {
-    border: 2px solid black;
-    width: 50px;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    border-radius: 10px;
-    width: 30%;
-}
 
 .list-group-item .service_provider_name {
     width: 70%;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 5px;
+    width: 100%;
+}
+
+.card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: column;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border-radius: 1rem;
+    color: white;
+    font-weight: 900;
+    border :0px;
+}
+
+.card .service_provider_name {
+    width: 55%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    /* text-align: left; */
+    margin-left: 2rem;
+    border: 2px solid #182C61;
+    padding: 1rem;
+    background: #0d6efd;
+    border-radius: 2rem;
+}
+
+.card .status {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    border: 3px solid white ;
+    border-radius: 2rem;
 }

@@ -5,11 +5,11 @@ const Posts = ({posts, verify}) => {
         return <h2>Loading...</h2>;
     }
 
-    return <ul className="list-group">
+    return <ul className="container">
         {posts.map(post => (
-            <li key={post.id} className="list-group-item">
-                <h2 className="service_provider_name">{post.title}</h2>
-                <h2 className="status">{post.id}</h2>
+            <li key={post.id} className="card">
+                <div className="service_provider_name">{post.title}</div>
+                <div className="status">{post.id}</div>
             </li>
         ))}
     </ul>;

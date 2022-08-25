@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Container, Navbar } from "react-bootstrap";
+import { Container, Navbar, Button } from "react-bootstrap";
 import axios from "axios";
 import Posts from "./Posts";
 import Pagenation from "./Pagenation";
+import NavDets from "./NavDets";
+import "./ServiceProviderLists.css";
 
 function ServiceProviderLists(props) {
   console.log(props.adhaar);
@@ -10,7 +12,10 @@ function ServiceProviderLists(props) {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
-
+  const [acPosts, setAcPosts] = useState([]);
+  const [dcPosts, setDcPosts] = useState([]);
+  const [pdPosts, setPdPosts] = useState([]);
+  
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
@@ -38,22 +43,10 @@ function ServiceProviderLists(props) {
   }
 
   return (
-    <>
-      <Navbar>
-        <Container>
-          <button type="button" className="btn btn-secondary btn-lg">
-            Log Out
-          </button>
-          <Navbar.Toggle />
-          <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text>
-              Signed in as: <a href="#login">Customer Name</a>
-            </Navbar.Text>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+    <div className="list_bgd">
+      <NavDets></NavDets>
       <Container>
-        <h1 className="text-primary mb">My Blog</h1>
+        {/* <h1 className="text-primary mb">My Blog</h1> */}
         <Posts className="posts" posts={currentPosts} loading={loading}></Posts>
         <Pagenation
           postsPerPage={postsPerPage}
@@ -61,7 +54,7 @@ function ServiceProviderLists(props) {
           pagenate={pagenate}
         />
       </Container>
-    </>
+    </div>
   );
 }
 

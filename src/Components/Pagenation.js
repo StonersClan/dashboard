@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./Pagenation.css";
 const Pagenation = ({postsPerPage, totalPosts, pagenate}) => {
     const pageNumbers = [];
     
@@ -11,7 +11,7 @@ const Pagenation = ({postsPerPage, totalPosts, pagenate}) => {
         <nav>
             <ul className="pagination">
                 {pageNumbers.map(number => (
-                    <li key={number} className="page=item">
+                    <li key={number} className="page-item">
                         <a onClick = {() => pagenate(number)} href="!#" className="page-link">
                             {number}
                         </a>

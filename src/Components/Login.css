@@ -6,9 +6,10 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #e99d22;
-    
+  background-color: antiquewhite; 
 }
+
+    
 
 .form{
     font-weight: bold;
@@ -52,7 +53,7 @@ input{
     display: block;
     height: 50px;
     width: 100%;
-    background-color: rgba(191, 154, 20, 0.353);
+    background-color: rgba(150, 135, 81, 0.353);
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 8px;
@@ -66,13 +67,19 @@ input{
 button{
     margin-top: 20px;
     width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
+    background-color: #6a5d5d3b;
+    color: #0b0710;
+    padding: 10px 0;
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
+    margin-bottom: -20px;
     cursor: pointer;
+}
+
+button:hover{
+    background-color: #3c3535;
+    color: #fff;
 }
 
 .otp-logs {

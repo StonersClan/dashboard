@@ -6,6 +6,7 @@ import Pagenation from "./Pagenation";
 import AdhAdd from "./AdhAdd";
 import NavDets from "./NavDets";
 import "./ServiceProviderLists.css";
+import StatusTable from "./StatusTable";
 
 const API_URL = "http://localhost:8080";
 
@@ -13,8 +14,6 @@ function ServiceProviderLists(props) {
   console.log(props.adhaar);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
   const [address, setAddress] = useState(
     "Ambegaon, Pune, 411041 Maharashtra, India"
   );
@@ -33,33 +32,13 @@ function ServiceProviderLists(props) {
     fetchPosts();
   }, []);
 
-  const pagenate = (number) => {
-    //state variable update would re-render the component
-    setCurrentPage(number);
-  };
-
-  console.log(posts);
-
-  var indexLast = currentPage * postsPerPage;
-  var indexFirst = indexLast - postsPerPage;
-  const currentPosts = posts.slice(indexFirst, indexLast);
-
-  if (indexLast >= posts.length) {
-    indexLast = posts.length;
-  }
-
   return (
     <div className="list_bgd">
       <NavDets />
       <Container>
         <AdhAdd adhaar={props.adhaar} address={address} />
         {/* <h1 className="text-primary mb">My Blog</h1> */}
-        <Posts className="posts" posts={currentPosts} loading={loading}></Posts>
-        <Pagenation
-          postsPerPage={postsPerPage}
-          totalPosts={posts.length}
-          pagenate={pagenate}
-        />
+        <StatusTable posts={posts} />
       </Container>
     </div>
   );

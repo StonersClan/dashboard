@@ -59,9 +59,9 @@ const Login = (props) => {
             }}
           />
         </label>
-        <Button className="button" variant="primary" onClick={validateAdhaar}>
+        <button className="button" onClick={validateAdhaar}>
           Get OTP
-        </Button>
+        </button>
       </div>
 
       <div className="otp-logs">
@@ -69,9 +69,9 @@ const Login = (props) => {
           Enter the OTP sent to registered mobile number:
           <input type="text" value={OTP} onChange={handleSetOTP} />
         </label>
-        <Button className="button" variant="primary" onClick={verifyOTP}>
+        <button className="button" onClick={verifyOTP}>
           VERIFY
-        </Button>
+        </button>
       </div>
     </Container>
   );

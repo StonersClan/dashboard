@@ -6,9 +6,9 @@ import "./AdhAdd.css";
 
 function AdhAdd(props) {
   return (
-    <section className="top-nav sec">
-      <div className="first">{props.adhaar}</div>
-      <div className="second">{props.address}</div>
+    <section className="sec">
+      <div className="first"><b>Aadhaar ID:</b> {props.adhaar}</div>
+      <div className="second"><b>Address:</b> {props.address}</div>
     </section>
   );
 }

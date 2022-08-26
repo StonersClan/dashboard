@@ -7,7 +7,7 @@ import Login from "./Components/Login";
 
 function App() {
   const [verify, setVerify] = useState(false);
-  const [adhaarNum, setAdhaarNum] = useState("");
+  const [adhaarNum, setAdhaarNum] = useState("100000000001");
 
   function handleSetAdhaar(num) {
     setAdhaarNum(num);
@@ -20,9 +20,15 @@ function App() {
   return (
     <>
       {verify ? (
-        <ServiceProviderLists adhaar={adhaarNum} />
+        <ServiceProviderLists
+          className="ppxx"
+          adhaar={adhaarNum}
+        />
       ) : (
         <Login
+          styles={{
+            backgroundColor: "antiquewhite",
+          }}
           adhaar={adhaarNum}
           handleSetAdhaarNum={handleSetAdhaar}
           handleSetVerify={handleSetVerify}

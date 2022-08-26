@@ -5,21 +5,23 @@ import Button from "react-bootstrap/Button";
 import "./NavDets.css";
 
 function NavDets() {
+  function handleReload() {
+    window.location.reload();
+  }
+
   return (
     <section className="top-nav">
-        <div>
-            Address Update Status
-        </div>
-        <input id="menu-toggle" type="checkbox" />
-        
-        <label className='menu-button-container' for="menu-toggle">
-            <div className='menu-button'></div>
-        </label>
-        
-        <ul className="menu">
-          <li>Log Out</li>
-        </ul>
-  </section>
+      <div>Address Update Status</div>
+      <input id="menu-toggle" type="checkbox" />
+
+      <label className="menu-button-container" for="menu-toggle">
+        <div className="menu-button"></div>
+      </label>
+
+      <ul className="menu">
+        <Button onClick={handleReload}>Log Out</Button>
+      </ul>
+    </section>
   );
 }
 
